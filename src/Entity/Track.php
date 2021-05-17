@@ -47,6 +47,11 @@ class Track
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $price;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Track
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getPrice(): ?string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(string $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

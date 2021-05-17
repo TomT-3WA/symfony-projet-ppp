@@ -17,6 +17,7 @@ class TrackFixtures extends Fixture
                   ->setType("Type de la piste n°$i")
                   ->setDuration("Durée de la piste n°$i")
                   ->setTempo("BPM de la piste n°$i")
+                  ->setPrice("29,99 €")
                   ->setCreatedAt(new \DateTime());
 
             $manager->persist($track);

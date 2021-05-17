@@ -3,17 +3,20 @@
 {% block body %}
     <img src="https://picsum.photos/300"/>
     <div>
-        <h1>Bigot</h1>
-        <h2>New School</h2>
+        <h1>{{ track.title }}</h1>
+        <h2>{{ track.type }}</h2>
     </div>
-<h3>4:03</h3>
-<h3>130</h3>
+<h3>{{ track.duration }}</h3>
+<h3>{{ track.tempo }}</h3>
 <div>
     <a href="#"><i class="fas fa-download"></i></a>
     <a href="#"><i class="fas fa-share-square"></i></a>
-    <button type="button">
+    <button type="button" class="btn-add-cart">
         <i class="fas fa-cart-plus"></i>
-        <span>29.99 €</span>
+        <span>{{ track.price }}</span>
     </button>
+</div>
+<div class="browse-tracks-createdAt">
+    Publié le {{ track.createdAt | date('d/m/Y') }} à {{ track.createdAt | date('H:i') }}
 </div>
 {% endblock body %}
