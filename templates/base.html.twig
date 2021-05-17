@@ -22,17 +22,68 @@
         {% endblock %}
     </head>
     <body>
-        <div class="logo-and-tab">
-            <a href="/" class="logo"><img src="/src/img/Logo PP_Simple.png" alt="Logo du Projet"></a>
-            <div class="header-tab">
-                <div class="non-authentificated">
-            <a href="/se-connecter" class="sign-up">S'inscrire | Se Connecter</a>
+        <header>
+            <div class="logo-and-tab">
+                <a href="/" class="logo"><img src="/src/img/Logo PP_Simple.png" alt="Logo du Projet"></a>
+                <div class="header-tab">
+                    <div class="non-authentificated">
+                <a href="/se-connecter" class="sign-up">S'inscrire | Se Connecter</a>
+                    </div>
+                <a href="/panier" class="cart"><i class="fas fa-shopping-cart"></i></a>
                 </div>
-            <a href="/panier" class="cart"><i class="fas fa-shopping-cart"></i></a>
             </div>
-        </div>
+            <nav>
+                <a href="/" class="nav-active nav-home">Accueil</a>
+                <a href="/tracks" class="nav-tracks">Tracks</a>
+                <a href="/pepe" class="nav-pepe">L'artiste</a>
+                <a href="/contact" class="nav-contact">Nous Contacter</a>
+            </nav>
+        </header>
         <div class="container">
             {% block body %}{% endblock %}
         </div>
+        <footer>
+            <div class="info">
+                <div class="info-details">
+                    <i class="fab fa-paypal"></i>
+                    <h3>Paiement Securisé</h3>
+                    <p>Chaque paiement s'effectue de manière sécurisé par Paypal. Vos données resteront confidentielles.</p>
+                </div>
+                <div class="info-details">
+                    <i class="fas fa-arrow-circle-down"></i>
+                    <h3>Téléchargement Immédiat</h3>
+                    <p>Une fois la licence achetée, un lien exclusif vous est délivré pour télécharger instantanément la production.</p>
+                </div>
+                <div class="info-details">
+                    <img src="img/waveform.png">
+                    <h3>Instrumentales De Haute-Qualité</h3>
+                    <p>Chaque instrumentale est délivrée avec la meilleure qualité de son et un mixage travaillé, idéal tant pour travailler en studio que chez soi.</p>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="#" class="footer-logo"><img src="img/Logo PP_Simple.png"/></a>
+                <div class="footer-flex">
+                    <div class="footer-contact">
+                        <h4>Contact</h4>
+                        <ul class="contact">
+                            <li>Mail : <a href="mailto:peperooniiprod@gmail.com">peperooniiprod@gmail.com</a></li>
+                            <li>Téléphone : <a href="tel:+33789616798">07 89 61 67 98</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Reseaux</h4>
+                        <ul class="social-networks">
+                            <li><a href="https://www.instagram.com/pepe_roonii/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://soundcloud.com/mathis-chenut"><i class="fab fa-soundcloud"></i></a></li>
+                            <li><a href="https://www.facebook.com/mathis.chenut"><i class="fab fa-facebook-f"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/src/slick/slick.min.js"></script>
+    <script type="text/javascript" src="/src/js/script.js"></script>
     </body>
 </html>
