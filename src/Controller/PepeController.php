@@ -18,10 +18,12 @@ class PepeController extends AbstractController
         ]);
     }
 
-    /**:
+    /**
      * @Route("/", name="home")
      */
-    public function home(): Response {
-        return $this->render('pepe/home.html.twig');
+    public function home() {
+        return $this->render('pepe/home.html.twig', [
+            
+        ]);
     }
 }

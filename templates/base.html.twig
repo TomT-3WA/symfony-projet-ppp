@@ -6,13 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>{% block title %}Peperoonii Prod{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <link rel="icon" type="image/png" href="/src/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" href="build/img/favicon-32x32.png">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/src/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="/src/slick/slick-theme.css"/>
-        <link rel="stylesheet" href="/src/css/normalize.css">
-        <link rel="stylesheet" href="/src/css/fonts.css">
-        <link rel="stylesheet" href="/src/css/style.css">
+        <link rel="stylesheet" type="text/css" href="build/css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="build/css/slick-theme.css"/>
+        <link rel="stylesheet"  type="text/css" href="{{ asset('build/css/app.css') }}">
+        <link rel="stylesheet"  type="text/css" href="{{ asset('build/css/normalize.css') }}">
+        <link rel="stylesheet"  type="text/css" href="{{ asset('build/css/fonts.css') }}">
+
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -24,7 +25,7 @@
     <body>
         <header>
             <div class="logo-and-tab">
-                <a href="/" class="logo"><img src="/src/img/Logo PP_Simple.png" alt="Logo du Projet"></a>
+                <a href="/" class="logo"><img src="build/img/Logo PP_Simple.png" alt="Logo du Projet"></a>
                 <div class="header-tab">
                     <div class="non-authentificated">
                 <a href="/se-connecter" class="sign-up">S'inscrire | Se Connecter</a>
@@ -55,13 +56,13 @@
                     <p>Une fois la licence achetée, un lien exclusif vous est délivré pour télécharger instantanément la production.</p>
                 </div>
                 <div class="info-details">
-                    <img src="img/waveform.png">
+                    <img src="build/img/waveform.png">
                     <h3>Instrumentales De Haute-Qualité</h3>
                     <p>Chaque instrumentale est délivrée avec la meilleure qualité de son et un mixage travaillé, idéal tant pour travailler en studio que chez soi.</p>
                 </div>
             </div>
             <div class="footer">
-                <a href="#" class="footer-logo"><img src="img/Logo PP_Simple.png"/></a>
+                <a href="#" class="footer-logo"><img src="build/img/Logo PP_Simple.png"/></a>
                 <div class="footer-flex">
                     <div class="footer-contact">
                         <h4>Contact</h4>
@@ -83,7 +84,7 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/src/slick/slick.min.js"></script>
-    <script type="text/javascript" src="/src/js/script.js"></script>
+    <script type="text/javascript" src="{{ asset('build/js/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/js/script.js') }}"></script>
     </body>
 </html>
