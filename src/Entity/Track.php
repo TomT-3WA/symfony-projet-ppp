@@ -48,8 +48,7 @@ class Track
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="tracks")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $type;
 
@@ -130,12 +129,12 @@ class Track
         return $this;
     }
 
-    public function getType(): ?Type
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(?Type $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 
