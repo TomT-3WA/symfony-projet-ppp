@@ -27,7 +27,7 @@ class TrackFixtures extends Fixture
 
                 $track = new Track();
 
-                $title = '<p>' . join($faker->words(), ' ') . '</p>';
+                $title = '' . join($faker->words(), ' ') . '';
                 $duration = $faker->time('i:s', '5:00');
                 $tempo = $faker->numberBetween(50, 180);
                 $price = $faker->randomFloat(2, 19.99, 99.99);
