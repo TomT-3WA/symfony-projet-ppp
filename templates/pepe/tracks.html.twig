@@ -1,53 +1,64 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section class="section-tracks">
-        <h1>Tracks</h1>
-        <article class="offre">
-            <i class="fas fa-percent"></i>
-            <h2>Offre Spéciale</h2>
-            <h3>1 instrumentale achetée<br> = <br><b>1 instrumentale offerte</b></h3>
-        </article>
-        <div class="browse">
-            <div class="row tracks-header">
-                <div class="col-4 browse-header-title">
-                    <i class="fas fa-stream"></i>
-                    <span>Titre</span>
-                </div>
-                <div class="col-1 browse-header-duration">
-                    <i class="fas fa-clock"></i>
-                    <span>Durée</span>
-                </div>
-                <div class="col-1 browse-header-tempo">
-                    <i class="fas fa-music"></i>
-                    <span>BPM</span>
-                </div>
-            </div>
-            <div class="tracks">
-                <!-- Track -->
-                {% for track in tracks %}
-                    <div class="row track track-1">
-                        <div class="col-4 browse-tracks-title track-1">
-                            <img src="{{ track.image }}"/>
-                            <div>
-                                <a class="browse-track-title" href="{{ path("tracks_show", {'id' : track.id}) }}">{{ track.title }}</a><br>
-                                <span>{{ track.type }}</span>
-                            </div>
-                        </div>
-                        <div class="col-1 browse-tracks-duration track-1">{{ track.duration }}</div>
-                        <div class="col-1 browse-tracks-tempo track-1">{{ track.tempo }}</div>
-                        <div class="col-4 browse-tracks-actions track-1">
-                            <a href="#"><i class="fas fa-download"></i></a>
-                            <a href="#"><i class="fas fa-share-square"></i></a>
-                            <button type="button" class="btn-add-cart">
-                                <i class="fas fa-cart-plus"></i>
-                                <span>{{ track.price }}</span>
-                            </button>
-                        </div>
-                        <div class="browse-tracks-createdAt">Publié le {{ track.createdAt | date('d/m/Y') }} à {{ track.createdAt | date('H:i') }}</div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+	<section class="section-tracks">
+		<h1>Tracks</h1>
+		<article class="offre">
+			<i class="fas fa-percent"></i>
+			<h2>Offre Spéciale</h2>
+			<h3>1 instrumentale achetée<br>
+				=
+				<br><b>1 instrumentale offerte</b>
+			</h3>
+		</article>
+		<div class="browse">
+			<div class="row tracks-header">
+				<div class="col-4 browse-header-title">
+					<i class="fas fa-stream"></i>
+					<span>Titre</span>
+				</div>
+				<div class="col-1 browse-header-duration">
+					<i class="fas fa-clock"></i>
+					<span>Durée</span>
+				</div>
+				<div class="col-1 browse-header-tempo">
+					<i class="fas fa-music"></i>
+					<span>BPM</span>
+				</div>
+			</div>
+			<div
+				class="tracks">
+				<!-- Track -->
+				{% for track in tracks %}
+					<div class="row track track-1">
+						<div class="col-4 browse-tracks-title track-1">
+							<img src="{{ track.image }}"/>
+							<div>
+								<a class="browse-track-title" href="{{ path("tracks_show", {'id' : track.id}) }}">{{ track.title }}</a><br>
+								<span>{{ track.type }}</span>
+							</div>
+						</div>
+						<div class="col-1 browse-tracks-duration track-1">{{ track.duration }}</div>
+						<div class="col-1 browse-tracks-tempo track-1">{{ track.tempo }}</div>
+						<div class="col-4 browse-tracks-actions track-1">
+							<a href="#">
+								<i class="fas fa-download"></i>
+							</a>
+							<a href="#">
+								<i class="fas fa-share-square"></i>
+							</a>
+							<button type="button" class="btn-add-cart">
+								<i class="fas fa-cart-plus"></i>
+								<span>{{ track.price }}</span>
+							</button>
+						</div>
+						<div class="browse-tracks-createdAt">Publié le
+							{{ track.createdAt | date('d/m/Y') }}
+							à
+							{{ track.createdAt | date('H:i') }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
 {% endblock body %}
