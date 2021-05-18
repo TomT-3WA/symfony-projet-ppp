@@ -32,7 +32,7 @@ class TrackFixtures extends Fixture
                 $tempo = $faker->numberBetween(50, 180);
                 $price = $faker->randomFloat(2, 19.99, 99.99);
 
-                $track->setImage($faker->imageUrl(52, 52))
+                $track->setImage($faker->imageUrl(100, 100))
                     ->setTitle($title)
                     ->setCategory($category)
                     ->setType($faker->word())
