@@ -52,6 +52,12 @@ class Track
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="tracks")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +143,18 @@ class Track
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
