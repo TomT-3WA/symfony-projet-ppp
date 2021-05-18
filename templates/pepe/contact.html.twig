@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Nous Contacter</h1>
+	{{ form_start(formContact) }}
+	<div class="div-form">
+		<form>
+			<input type="text" name="nom" placeholder="Nom"/>
+			<input type="email" name="email" placeholder="Email"/>
+			<input type="text" name="sujet" placeholder="Sujet"/>
+			<input type="text" name="msg" placeholder="Message"/>
+		</form>
+	</div>
+	<input type="submit" value="Envoyer"/>
+	{{ form_end(formContact) }}
+{% endblock body %}
