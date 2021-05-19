@@ -1,22 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <img src="https://picsum.photos/300"/>
-    <div>
-        <h1>{{ track.title }}</h1>
-        <h2>{{ track.type }}</h2>
-    </div>
-<h3>{{ track.duration }}</h3>
-<h3>{{ track.tempo }}</h3>
-<div>
-    <a href="#"><i class="fas fa-download"></i></a>
-    <a href="#"><i class="fas fa-share-square"></i></a>
-    <button type="button" class="btn-add-cart">
-        <i class="fas fa-cart-plus"></i>
-        <span>{{ track.price }}</span>
-    </button>
-</div>
-<div class="browse-tracks-createdAt">
-    Publié le {{ track.createdAt | date('d/m/Y') }} à {{ track.createdAt | date('H:i') }}
-</div>
+	<img src="https://picsum.photos/300"/>
+	<div>
+		<h1>{{ track.title }}</h1>
+		<h2>{{ track.type }}</h2>
+	</div>
+	<h3>{{ track.duration }}</h3>
+	<h3>{{ track.tempo }}</h3>
+	<div>
+		<a href="#">
+			<i class="fas fa-download"></i>
+		</a>
+		<a href="#">
+			<i class="fas fa-share-square"></i>
+		</a>
+		<button type="button" class="btn-add-cart">
+			<i class="fas fa-cart-plus"></i>
+			<span>{{ track.price }}</span>
+		</button>
+	</div>
+	<div class="browse-tracks-createdAt">
+		Publié le
+		{{ track.createdAt | date('d/m/Y') }}
+		à
+		{{ track.createdAt | date('H:i') }}
+		<br>
+		dans la catégorie
+		<a href="#">{{ track.category.title }}</a>
+	</div>
+
+	<section class="comments">
+		{% for comment in track.comments %}
+			<div class="comment">
+				<div class="row">
+					<div class="col-3">
+						{{ comment.author }}
+						(<small>{{ comment.createdAt | date('d/m/Y à H:i')  }}</small>)
+					</div>
+					<div class="col">
+						{{ comment.content | raw }}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</section>
+
 {% endblock body %}
