@@ -30,9 +30,18 @@
 			<div class="logo-and-tab">
 				<a href="/" class="logo"><img src="{{ asset('build/img/Logo PP_Simple.png') }}" alt="Logo du Projet"></a>
 				<div class="header-tab">
-					<div class="non-authentificated">
-						<a href="/inscription" class="sign-up">S'inscrire | Se Connecter</a>
-					</div>
+					{% if not app.user %}
+						<div class="non-authentificated">
+							<a href="{{ path('security_login') }}" class="sign-up login">Se Connecter</a>
+						</div>
+						<div class="non-authentificated">
+							<a href="{{ path('security_registration') }}" class="sign-up">S'inscrire</a>
+						</div>
+					{% else %}
+						<div class="authentificated">
+							<a href="{{ path('security_logout') }}" class="sign-up logout">Se Déconnecter</a>
+						</div>
+					{% endif %}
 					<a href="/panier" class="cart">
 						<i class="fas fa-shopping-cart"></i>
 					</a>
@@ -108,3 +117,4 @@
 			<script type="text/javascript" src="{{ asset('build/js/script.js') }}"></script>
 		</body>
 	</html>
+</body></html>
