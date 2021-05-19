@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -29,10 +30,14 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit contenir au minimum 8 caractères")
      */
     private $password;
 
-    private $comfirm_password;
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas tapé le même mot de passe !")
+     */
+    private $confirm_password;
 
     public function getId(): ?int
     {
@@ -75,14 +80,14 @@ class User
         return $this;
     }
 
-    public function getComfirmPassword(): ?string
+    public function getConfirmPassword(): ?string
     {
-        return $this->password;
+        return $this->confirm_password;
     }
 
-    public function setComfirmPassword(string $comfirm_password): self
+    public function setConfirmPassword(string $confirm_password): self
     {
-        $this->comfirm_password = $comfirm_password;
+        $this->confirm_password = $confirm_password;
 
         return $this;
     }
