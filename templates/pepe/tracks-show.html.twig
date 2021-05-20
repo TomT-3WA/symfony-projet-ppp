@@ -31,6 +31,7 @@
 	</div>
 
 	<section class="comments">
+		<h1>Commentaires ({{ track.comments | length }})</h1>
 		{% for comment in track.comments %}
 			<div class="comment">
 				<div class="row">
@@ -44,6 +45,19 @@
 				</div>
 			</div>
 		{% endfor %}
+		<hr>
+		{% if app.user %}
+			{{ form_start(commentForm) }}
+			{{ form_row(commentForm.author, {'attr': {'placeholder': 'Votre nom'}}) }}
+			{{ form_row(commentForm.content, {'attr': {'placeholder': 'Votre commentaires'}}) }}
+			<button type="submit" class="btn-signin">Commenter</button>
+			{{ form_end(commentForm) }}
+		{% else %}
+			<h2>Connectez-vous pour commenter !</h2>
+			<button type="submit" class="btn-signin" href="{{ path('security_login') }}">
+				Se connecter
+			</button>
+		{% endif %}
 	</section>
 
 {% endblock body %}
