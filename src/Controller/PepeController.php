@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Track;
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Form\CreateType;
 use App\Repository\TrackRepository;
 
 class PepeController extends AbstractController
@@ -50,6 +50,39 @@ class PepeController extends AbstractController
     }
 
     /**
+     * @Route("/tracks/new", name="track_create")
+     * @Route("/tracks/{id}/edit", name="track_edit")
+     */
+    public function form(Track $track = null, Request $request, EntityManagerInterface $manager)
+    {
+        if (!$track) {
+            $track = new Track();
+        }
+
+        $form = $this->createForm(CreateType::class, $track);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$track->getId()) {
+                $track->setCreatedAt(new \DateTime());
+            }
+
+            $manager->persist($track);
+            $manager->flush();
+            $this->addFlash('success', 'La track a bien été modifiée');
+
+            return $this->redirectToRoute('tracks_show', ['id' => $track->getId()]);
+        }
+
+        return $this->render('pepe/create.html.twig', [
+            'track' => $track,
+            'createForm' => $form->createView(),
+            'editMode' => $track->getId() !== null
+        ]);
+    }
+
+    /**
      * @Route("/tracks/{id}", name="tracks_show")
      */
     public function tracks_show(Track $track, Request $request, EntityManagerInterface $manager)
@@ -75,6 +108,8 @@ class PepeController extends AbstractController
             'commentForm' => $form->createView()
         ]);
     }
+
+
     /**
      * @Route("/pepe", name="pepe")
      */

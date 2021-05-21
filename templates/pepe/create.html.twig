@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	{{ form_start(createForm) }}
+	{{ form_widget(createForm) }}
+	<button type="submit" class="btn btn-success">
+		{% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+			Ajouter la Track
+		{% endif %}
+	</button>
+	{{ form_end(createForm) }}
+
+{% endblock body %}

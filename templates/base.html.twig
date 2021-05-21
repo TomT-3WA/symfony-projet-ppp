@@ -52,6 +52,9 @@
 				<a href="{{ path('tracks') }}" class="nav-tracks">Tracks</a>
 				<a href="{{ path('pepe') }}" class="nav-pepe">L'artiste</a>
 				<a href="{{ path('contact') }}" class="nav-contact">Nous Contacter</a>
+				{% if app.user %}
+					<a href="{{ path('track_create')}}" class="nav-create">Déposer une Track</a>
+				{% endif %}
 			</nav>
 		</header>
 		<div class="container"> {% block body %}{% endblock %}
@@ -117,4 +120,4 @@
 			<script type="text/javascript" src="{{ asset('build/js/script.js') }}"></script>
 		</body>
 	</html>
-</body></html>
+</body></html></body></html>
