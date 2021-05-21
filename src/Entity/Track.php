@@ -5,7 +5,9 @@ namespace App\Entity;
 use App\Repository\TrackRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\BlobType;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TrackRepository::class)
@@ -64,6 +66,15 @@ class Track
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="track", orphanRemoval=true)
      */
     private $comments;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\File(mimeTypes={ "audio/mpeg", "audio/wav", "audio/x-wav", "application/octet-stream" })
+     * @Assert\File(maxSize = "32768k")
+     * @Assert\Valid()
+     * @var UploadedFile
+     */
+    private $file;
 
     public function __construct()
     {
@@ -197,6 +208,18 @@ class Track
                 $comment->setTrack(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

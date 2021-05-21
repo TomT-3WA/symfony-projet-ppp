@@ -3,7 +3,15 @@
 {% block body %}
 
 	{{ form_start(createForm) }}
-	{{ form_widget(createForm) }}
+	{{ form_widget(createForm.title, {'attr': {'placeholder': 'Titre de la piste'}}) }}
+	{{ form_widget(createForm.duration, {'attr': {'placeholder': 'Durée de la piste'}}) }}
+	{{ form_widget(createForm.tempo, {'attr': {'placeholder': 'Tempo de la piste'}}) }}
+	{{ form_widget(createForm.price, {'attr': {'placeholder': 'Prix de la piste'}}) }}
+	{{ form_label(createForm.file) }}
+	{{ form_widget(createForm.file, {'attr': {'class': 'form-control'}}) }}
+	{{ form_label(createForm.image) }}
+	{{ form_widget(createForm.image, {'attr': {'class': 'form-control'}}) }}
+	{{ form_widget(createForm.category, {'attr': {'placeholder': 'Catégorie de la piste'}}) }}
 	<button type="submit" class="btn btn-success">
 		{% if editMode %}
 			Enregistrer les modifications

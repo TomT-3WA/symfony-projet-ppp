@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<img src="https://picsum.photos/300"/>
+	{{ track.image }}
 	<div>
 		<h1>{{ track.title }}</h1>
 		<h2>{{ track.type }}</h2>
 	</div>
 	<h3>{{ track.duration }}</h3>
 	<h3>{{ track.tempo }}</h3>
+	<audio src="{{ asset('track.file') }}" controls></audio>
 	<div>
 		<a href="#">
 			<i class="fas fa-download"></i>
@@ -17,7 +18,7 @@
 		</a>
 		<button type="button" class="btn-add-cart">
 			<i class="fas fa-cart-plus"></i>
-			<span>{{ track.price }}</span>
+			<span>{{ track.price }}€</span>
 		</button>
 	</div>
 	<div class="browse-tracks-createdAt">
