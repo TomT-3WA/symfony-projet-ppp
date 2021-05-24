@@ -35,7 +35,7 @@
 							<img src="{{ track.image }}"/>
 							<div>
 								<a class="browse-track-title" href="{{ path("tracks_show", {'id' : track.id}) }}">{{ track.title | raw }}</a><br>
-								<span>{{ track.type }}</span>
+								<span>{{ track.category }}</span>
 							</div>
 						</div>
 						<div class="col-1 browse-tracks-duration track-1">{{ track.duration }}</div>
@@ -56,6 +56,16 @@
 							{{ track.createdAt | date('d/m/Y') }}
 							à
 							{{ track.createdAt | date('H:i') }}</div>
+						{% if app.user %}
+							<div class="col-2">
+								<button class="btn btn-primary">
+									<a href="{{ path('track_edit', {'id' : track.id}) }}">Modifer</a>
+								</button>
+								<button class="btn btn-primary">
+									<a href="{{ path('track_delete', {'id': track.id}) }}" onclick="return confirm('Attention ! Cette action va supprimer la piste')">Supprimer</a>
+								</button>
+							</div>
+						{% endif %}
 					</div>
 				{% endfor %}
 			</div>

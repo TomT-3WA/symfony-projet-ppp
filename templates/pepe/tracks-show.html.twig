@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{{ track.image }}
+	<img src="{{ track.image }}" alt="Image de la piste" width="300">
 	<div>
 		<h1>{{ track.title }}</h1>
-		<h2>{{ track.type }}</h2>
+		<h2>{{ track.category }}</h2>
 	</div>
 	<h3>{{ track.duration }}</h3>
 	<h3>{{ track.tempo }}</h3>

@@ -16,6 +16,7 @@ use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Form\CreateType;
 use App\Repository\TrackRepository;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PepeController extends AbstractController
 {
@@ -67,7 +68,16 @@ class PepeController extends AbstractController
             if (!$track->getId()) {
                 $track->setCreatedAt(new \DateTime());
             }
-
+            // Upload du fichier de musique
+            $uploadSong = $track->getFile();
+            $uploadSongName = md5(uniqid()) . '.' . $uploadSong->guessExtension();
+            $uploadSong->move($this->getParameter('upload_directory'), $uploadSongName);
+            $track->setFile($uploadSongName);
+            // Upload du fichier image
+            $uploadImage = $track->getImage();
+            $uploadImageName = md5(uniqid()) . '.' . $uploadImage->guessExtension();
+            $uploadImage->move($this->getParameter('upload_directory'), $uploadImageName);
+            $track->setImage($uploadImageName);
             $manager->persist($track);
             $manager->flush();
             $this->addFlash('success', 'La track a bien été modifiée');
@@ -82,6 +92,19 @@ class PepeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/tracks/{id}/delete", name="track_delete")
+     * @param Track $track
+     * @return RedirectResponse
+     */
+    public function delete(Track $track): RedirectResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($track);
+        $em->flush();
+
+        return $this->redirectToRoute("tracks");
+    }
     /**
      * @Route("/tracks/{id}", name="tracks_show")
      */
