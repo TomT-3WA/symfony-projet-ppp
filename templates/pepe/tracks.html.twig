@@ -48,8 +48,10 @@
 								<i class="fas fa-share-square"></i>
 							</a>
 							<button type="button" class="btn-add-cart">
-								<i class="fas fa-cart-plus"></i>
-								<span>{{ track.price }}€</span>
+								<a href="{{ path('cart_add', {'id': track.id}) }}">
+									<i class="fas fa-cart-plus"></i>
+									<span>{{ track.price }}€</span>
+								</a>
 							</button>
 						</div>
 						<div class="browse-tracks-createdAt">Publié le
