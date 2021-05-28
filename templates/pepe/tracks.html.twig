@@ -56,7 +56,7 @@
 							{{ track.createdAt | date('d/m/Y') }}
 							à
 							{{ track.createdAt | date('H:i') }}</div>
-						{% if app.user %}
+						{% if is_granted('ROLE_ADMIN') %}
 							<div class="col-2">
 								<button class="btn btn-primary">
 									<a href="{{ path('track_edit', {'id' : track.id}) }}">Modifer</a>

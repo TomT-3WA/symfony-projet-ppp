@@ -52,7 +52,7 @@
 				<a href="{{ path('tracks') }}" class="nav-tracks">Tracks</a>
 				<a href="{{ path('pepe') }}" class="nav-pepe">L'artiste</a>
 				<a href="{{ path('contact') }}" class="nav-contact">Nous Contacter</a>
-				{% if app.user %}
+				{% if is_granted('ROLE_ADMIN') %}
 					<a href="{{ path('track_create')}}" class="nav-create">Déposer une Track</a>
 				{% endif %}
 			</nav>
