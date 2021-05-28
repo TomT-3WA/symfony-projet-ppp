@@ -2,16 +2,7 @@
 
 {% block body %}
 
-	<h1>Chercher parmis mes tracks</h1>
-	<div class="search">
-		<form class="form-search">
-			<div class="vl"></div>
-			<input type="text" name="search" id="input-search" placeholder="Recherchez"/>
-			<button class="btn-search">
-				<i class="fas fa-search"></i>
-			</button>
-		</form>
-	</div>
+
 	<div class="slider">
 		<div>
 			<div class="details">
@@ -94,46 +85,53 @@
 			</div>
 		</div>
 	</div>
+	<div class="intro">
+		<p>Un rythme marquant, une mélodie entraînante et des basses appuyées font partie du mélange secret pour obtenir une bonne instru.</p>
+		<p>Tu n'as pas les bases ou pas le temps de composer tes propres prods ?</p>
+		<p>
+			<span class="pp">Peperoonii Prod</span>
+			te proposes des instrus rap déjà mixées et masterisées pour que tu poses tes meilleurs couplets dessus.</p>
+		<p>Tu préfères la
+			<span class="cat">Trap</span>
+			ou le
+			<span class="cat">Lo-Fi</span>
+		</p>
+		<p>Tu es peut-être plus
+			<span class="cat">Phonk</span>
+			ou le
+			<span class="cat">Old-School</span>
+		</p>
+		<p>Tu veux rentrer être dans la tendance avec de la
+			<span class="cat">Drill</span>
+		</p>
+		<p>N'hésite plus, tappe la catégorie dans la
+			<a href="{{ path('tracks') }}" class="introSearch">barre de recherche</a>
+			et choisis l'instru qui t'inspire</p>
+	</div>
 	<section class="how-works">
 		<h2>Comment ça marche ?</h2>
 		<article>
 			<h3>Faites un recherche</h3>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-				            sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-				            magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-				            quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-				            ut aliquip ex ea commodo consequat.</p>
-			<p>Typi non habent claritatem insitam; est usus legentis
-				            in iis qui facit eorum claritatem. Investigationes
-				            demonstraverunt lectores legere me lius quod ii legunt saepius.
-				            Claritas est etiam processus dynamicus, qui sequitur mutationem
-				            consuetudium lectorum.</p>
+			<button class="btn-search">
+				<a href="{{ path('tracks') }}">
+					<i class="fas fa-search"></i>
+				</a>
+			</button>
 		</article>
 		<article>
 			<h3>Ajoutez à votre panier</h3>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-				            sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-				            magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-				            quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-				            ut aliquip ex ea commodo consequat.</p>
-			<p>Typi non habent claritatem insitam; est usus legentis
-				            in iis qui facit eorum claritatem. Investigationes
-				            demonstraverunt lectores legere me lius quod ii legunt saepius.
-				            Claritas est etiam processus dynamicus, qui sequitur mutationem
-				            consuetudium lectorum.</p>
+			<button type="button" class="btn-add-cart">
+				<a href="{{ path('tracks') }}">
+					<i class="fas fa-cart-plus"></i>
+					<span>29.99€</span>
+				</a>
+			</button>
 		</article>
 		<article>
 			<h3>Téléchargez votre fichier</h3>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-				            sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-				            magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-				            quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-				            ut aliquip ex ea commodo consequat.</p>
-			<p>Typi non habent claritatem insitam; est usus legentis
-				            in iis qui facit eorum claritatem. Investigationes
-				            demonstraverunt lectores legere me lius quod ii legunt saepius.
-				            Claritas est etiam processus dynamicus, qui sequitur mutationem
-				            consuetudium lectorum.</p>
+			<a href="{{ path('tracks') }}">
+				<i class="fas fa-download"></i>
+			</a>
 		</article>
 	</section>
 {% endblock body %}
