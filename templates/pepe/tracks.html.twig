@@ -42,7 +42,7 @@
 				{% for track in tracks %}
 					<div class="row track track-1">
 						<div class="col-4 browse-tracks-title track-1">
-							<img src="{{ track.image }}"/>
+							<img src="{{ asset('/uploads/'~track.image) }}" width="300"/>
 							<div>
 								<a class="browse-track-title" href="{{ path("tracks_show", {'id' : track.id}) }}">{{ track.title | raw }}</a><br>
 								<span>{{ track.category }}</span>
