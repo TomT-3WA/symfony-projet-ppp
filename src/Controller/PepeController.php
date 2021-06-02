@@ -33,9 +33,13 @@ class PepeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home()
+    public function home(TrackRepository $trackRepository)
     {
-        return $this->render('pepe/home.html.twig');
+        $tracks = $trackRepository->findAll();
+
+        return $this->render('pepe/home.html.twig', [
+            'tracks' => $tracks
+        ]);
     }
 
     /**

@@ -4,86 +4,18 @@
 
 
 	<div class="slider">
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Breeze'O<br>
-						2:46</figcaption>
-				</figure>
-				<audio src="build/audio/BREEZE'O.mp3" controls></audio>
+		{% for track in tracks %}
+			<div>
+				<div class="details">
+					<figure>
+						<a href="{{ path("tracks_show", {'id' : track.id}) }}"><img src="{{ asset('/uploads/'~track.image) }}"></a>
+						<figcaption>{{ track.title }}<br>
+							{{ track.duration }}</figcaption>
+					</figure>
+					<audio src="{{ asset('/uploads/'~track.file) }}" controls></audio>
+				</div>
 			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Bigot<br>
-						4:03</figcaption>
-				</figure>
-				<audio src="build/audio/bigot.mp3" controls></audio>
-			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Shawty Penthouse<br>
-						2:42</figcaption>
-				</figure>
-				<audio src="build/audio/iron-steeze-shawty-penthouse.mp3" controls></audio>
-			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Luftair<br>
-						3:33</figcaption>
-				</figure>
-				<audio src="build/audio/luftair.mp3" controls></audio>
-			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Moon<br>
-						3:20</figcaption>
-				</figure>
-				<audio src="build/audio/moon.mp3" controls></audio>
-			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Poulet Chris<br>
-						3:15</figcaption>
-				</figure>
-				<audio src="build/audio/poulet-chris.mp3" controls></audio>
-			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Regards<br>
-						3:20</figcaption>
-				</figure>
-				<audio src="build/audio/regards.mp3" controls></audio>
-			</div>
-		</div>
-		<div>
-			<div class="details">
-				<figure>
-					<a href="#"><img src="https://picsum.photos/150"></a>
-					<figcaption>Thinked'Up<br>
-						2:05</figcaption>
-				</figure>
-				<audio src="build/audio/THINKED'UP.mp3" controls></audio>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 	<div class="intro">
 		<p>Un rythme marquant, une mélodie entraînante et des basses appuyées font partie du mélange secret pour obtenir une bonne instru.</p>
