@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Track;
 use App\Entity\Comment;
+use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\CreateType;
 use App\Repository\TrackRepository;
@@ -109,6 +110,21 @@ class PepeController extends AbstractController
 
         return $this->redirectToRoute("tracks");
     }
+
+    /**
+     * @Route("/tracks/{id}/comment/delete", name="comment_delete")
+     * @param Comment $comment
+     * @return RedirectResponse
+     */
+    public function deleteComment(Comment $comment): RedirectResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($comment);
+        $em->flush();
+
+        return $this->redirectToRoute("tracks");
+    }
+
     /**
      * @Route("/tracks/{id}", name="tracks_show")
      */

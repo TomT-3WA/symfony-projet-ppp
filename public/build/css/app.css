@@ -459,6 +459,11 @@ span.cat {
   transition: all 0.7s;
 }
 
+.track img {
+  width: 100px;
+  height: 100px;
+}
+
 .browse-tracks-actions {
   display: flex;
   justify-content: center;

@@ -12,7 +12,7 @@
 			</h3>
 		</article>
 		<div class="search">
-			<h1>Chercher parmis mes tracks</h1>
+			<h1>Chercher parmi mes tracks</h1>
 			<form class="form-search">
 				<div class="vl"></div>
 				<input type="text" name="search" id="input-search" placeholder="Tracks, catégories, bpm, ..."/>
@@ -73,7 +73,7 @@
 								<button class="btn btn-primary">
 									<a href="{{ path('track_edit', {'id' : track.id}) }}">Modifer</a>
 								</button>
-								<button class="btn btn-primary">
+								<button class="btn btn-danger">
 									<a href="{{ path('track_delete', {'id': track.id}) }}" onclick="return confirm('Attention ! Cette action va supprimer la piste')">Supprimer</a>
 								</button>
 							</div>

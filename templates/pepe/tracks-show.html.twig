@@ -43,6 +43,13 @@
 					<div class="col">
 						{{ comment.content | raw }}
 					</div>
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="col">
+							<button class="btn btn-danger">
+								<a href="{{ path('comment_delete', {'id': comment.id}) }}" onclick="return confirm('Attention ! Cette action va supprimer le commentaire')">Supprimer</a>
+							</button>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		{% endfor %}

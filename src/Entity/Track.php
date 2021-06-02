@@ -38,6 +38,12 @@ class Track
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Image(mimeTypes={ "image/png", "image/jpg", "image/jpeg", "image/gif" })
+     * @Assert\Image(allowSquare = true)
+     * @Assert\Image(minWidth = 52)
+     * @Assert\Image(maxWidth = 1080)
+     * @Assert\Image(minHeight = 52)
+     * @Assert\Image(maxHeight = 1080)
      */
     private $image;
 

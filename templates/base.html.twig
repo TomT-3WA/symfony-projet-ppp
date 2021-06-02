@@ -53,7 +53,7 @@
 				<a href="{{ path('pepe') }}" class="nav-pepe">L'artiste</a>
 				<a href="{{ path('contact') }}" class="nav-contact">Nous Contacter</a>
 				{% if is_granted('ROLE_ADMIN') %}
-					<a href="{{ path('track_create')}}" class="nav-create">Déposer une Track</a>
+					<a href="{{ path('admin')}}" class="nav-admin">Page Admin</a>
 				{% endif %}
 			</nav>
 		</header>
@@ -64,7 +64,7 @@
 					<div class="info-details">
 						<i class="fab fa-paypal"></i>
 						<h3>Paiement Securisé</h3>
-						<p>Chaque paiement s'effectue de manière sécurisé par Paypal. Vos données resteront confidentielles.</p>
+						<p>Chaque paiement s'effectue de manière sécurisée par Paypal. Vos données resteront confidentielles.</p>
 					</div>
 					<div class="info-details">
 						<i class="fas fa-arrow-circle-down"></i>
