@@ -15,6 +15,7 @@ use App\Entity\Track;
 use App\Entity\Comment;
 use App\Entity\User;
 use App\Form\CommentType;
+use App\Form\ContactType;
 use App\Form\CreateType;
 use App\Repository\TrackRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -164,17 +165,34 @@ class PepeController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(Request $request)
+    public function contact(Request $request, \Swift_Mailer $mailer)
     {
-        $form = $this->createFormBuilder()
-            ->getForm();
+        $form = $this->createForm(ContactType::class);
 
         $form->handleRequest($request);
 
-        dump($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contact = $form->getData();
+
+            $message = (new \Swift_Message('Nouveau Contact'))
+                ->setFrom($contact['email'])
+                ->setTo('timsitom@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'emails/contact.html.twig',
+                        compact('contact')
+                    ),
+                    'text/html'
+                );
+
+            $mailer->send($message);
+
+            $this->addFlash('message', 'Le message a bien été envoyé');
+            return $this->redirectToRoute('home');
+        }
 
         return $this->render('pepe/contact.html.twig', [
-            'formContact' => $form->createView()
+            'contactForm' => $form->createView()
         ]);
     }
 }
