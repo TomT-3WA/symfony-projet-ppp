@@ -269,6 +269,11 @@ h2 {
   color: #5f91d8;
 }
 
+.details img {
+  width: 150px;
+  height: 150px;
+}
+
 /*** Intro ***/
 
 .intro {
