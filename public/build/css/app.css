@@ -278,7 +278,7 @@ h2 {
 
 .intro {
   font-size: 2rem;
-  margin: 2rem 20rem;
+  margin: 2rem;
 }
 
 span.pp {
@@ -689,6 +689,10 @@ td.total {
 
   header nav a {
     padding: 1rem;
+  }
+
+  .intro {
+    margin: 1rem 0;
   }
 }
 
