@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+	Peperoonii Prod - Connexion
+{% endblock %}
+
 {% block body %}
 	<h1>Connexion</h1>
 	<form action="{{ path('security_login') }}" method="post">
