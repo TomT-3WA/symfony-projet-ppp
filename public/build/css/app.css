@@ -426,6 +426,10 @@ span.cat {
   text-decoration: underline;
 }
 
+.tracks-header {
+  visibility: hidden;
+}
+
 .browse-tracks-title {
   display: flex;
   flex-direction: column;
@@ -441,6 +445,8 @@ span.cat {
 }
 
 .browse-tracks-title img {
+  margin-right: 1rem;
+
   vertical-align: middle;
 }
 
@@ -582,6 +588,14 @@ td.total {
 
 .comment {
   margin: 2.5rem 0;
+}
+
+/********************************* Admin **************************************/
+
+.btn-primary,
+.btn-danger {
+  font-size: 1.5rem;
+  width: 100%;
 }
 
 /********************************* L'artiste **********************************/
@@ -771,6 +785,10 @@ td.total {
     flex-direction: row;
   }
 
+  .tracks-header {
+    visibility: visible;
+  }
+
   .browse-tracks-title {
     display: flex;
     flex-direction: row;
@@ -784,7 +802,6 @@ td.total {
 
   .browse-tracks-title {
     margin: 1rem;
-    text-align: left;
 
     justify-content: start;
   }
